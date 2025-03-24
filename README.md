@@ -72,18 +72,18 @@ http://localhost:8000/docs
 ---
 
 ## 📸 Screenshots
-
 ### 📊 Dashboard
-<img src="images/d1.png" alt="Dashboard" width="800">
+![Dashboard](https://github.com/podderSoykot/erp-system/blob/main/images/d1.PNG?raw=true)
 
 ### 📦 Inventory Management
-<img src="images/d2.png" alt="Inventory Management" width="800">
+![Inventory Management](https://github.com/podderSoykot/erp-system/blob/main/images/d2.PNG?raw=true)
 
 ### 📈 Reports
-<img src="images/d3.png" alt="Reports" width="800">
+![Reports](https://github.com/podderSoykot/erp-system/blob/main/images/d3.PNG?raw=true)
 
 ### 👥 User Management
-<img src="images/d4.png" alt="User Management" width="800">
+![User Management](https://github.com/podderSoykot/erp-system/blob/main/images/d4.PNG?raw=true)
+
 
 
 ---
