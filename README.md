@@ -52,13 +52,13 @@ python manage.py runserver
 
 ## Screenshots
 ### Dashboard
-![Dashboard](erp-system/images/d1.png)
+![Dashboard](images/d1.png)
 
 ### Inventory Management
-![Inventory Management](erp-system/images/d2.png)
+![Inventory Management](images/d2.png)
 
 ### Reports
-![Reports](erp-system/images/d3.png)
+![Reports](images/d3.png)
 
 ### User Management
-![User Management](erp-system/images/d4.png)
+![User Management](images/d4.png)
