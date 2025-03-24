@@ -73,7 +73,7 @@ http://localhost:8000/docs
 
 ## 📸 Screenshots
 ### 📊 Dashboard
-![Dashboard](images/d1.png)
+![Dashboard]([images/d1.png](https://github.com/podderSoykot/erp-system/blob/main/images/d1.PNG))
 
 ### 📦 Inventory Management
 ![Inventory Management](images/d2.png)
