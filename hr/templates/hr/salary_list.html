@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block title %} Salary Records {% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold text-green-700 text-center mb-6">Salary Records</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse bg-white shadow-md rounded-lg">
+            <thead class="bg-green-700 text-white">
+                <tr>
+                    <th class="px-6 py-3 text-left">Employee</th>
+                    <th class="px-6 py-3 text-left">Amount ($)</th>
+                    <th class="px-6 py-3 text-left">Date Issued</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for salary in salaries %}
+                <tr class="hover:bg-gray-100 transition-all">
+                    <td class="px-6 py-4 border-b">{{ salary.employee.name }}</td>
+                    <td class="px-6 py-4 border-b font-bold text-green-600">${{ salary.amount }}</td>
+                    <td class="px-6 py-4 border-b text-gray-700">{{ salary.date_issued }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
+

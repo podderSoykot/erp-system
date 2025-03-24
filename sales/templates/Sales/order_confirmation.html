@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{% block content %}
+<h2>Order Confirmation</h2>
+
+<p>Thank you, {{ order.customer.first_name }}! Your order for <strong>{{ order.product.name }}</strong> has been placed successfully.</p>
+
+<p><strong>Order ID:</strong> {{ order.id }}</p>
+<p><strong>Product:</strong> {{ order.product.name }}</p>
+<p><strong>Quantity:</strong> {{ order.quantity }}</p>
+<p><strong>Total Price:</strong> ${{ order.invoice.total_amount }}</p>
+<p><strong>Status:</strong> {{ order.status }}</p>
+
+<a href="{% url 'product_list' %}">Continue Shopping</a>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ERP System{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    
+    <style>
+        /* Custom styles */
+        .navbar-item:hover {
+            color: #facc15; /* Yellow */
+        }
+        .content-container {
+            min-height: calc(100vh - 80px); /* Adjust for navbar */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="{% url 'home' %}" class="text-white text-2xl font-bold flex items-center">
+                <i class="bi bi-grid-3x3-gap-fill mr-2"></i> ERP System
+            </a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="{% url 'home' %}" class="text-white navbar-item">Home</a>
+                <a href="{% url 'product_list' %}" class="text-white navbar-item">Products</a>
+                <a href="{% url 'stock_list' %}" class="text-white navbar-item">Stocks</a>
+                <a href="{% url 'employee_list' %}" class="text-white navbar-item">Employees</a>
+                <a href="{% url 'customer_list' %}" class="text-white navbar-item">Customers</a>
+                <a href="{% url 'order_list' %}" class="text-white navbar-item">Orders</a>
+            </div>
+            <button class="text-white text-2xl md:hidden" onclick="toggleMenu()">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-blue-700 p-4">
+            <a href="{% url 'home' %}" class="block text-white py-2">Home</a>
+            <a href="{% url 'product_list' %}" class="block text-white py-2">Products</a>
+            <a href="{% url 'stock_list' %}" class="block text-white py-2">Stocks</a>
+            <a href="{% url 'employee_list' %}" class="block text-white py-2">Employees</a>
+            <a href="{% url 'customer_list' %}" class="block text-white py-2">Customers</a>
+            <a href="{% url 'order_list' %}" class="block text-white py-2">Orders</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 content-container">
+        {% block content %}
+        <div class="text-center mt-10">
+            <h1 class="text-3xl font-bold text-blue-600">Welcome to the ERP System</h1>
+            <p class="text-gray-600 mt-2">Manage your business efficiently with our platform.</p>
+        </div>
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4 mt-10">
+        <p>&copy; 2025 ERP System. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+</html>
+

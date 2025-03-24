@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% block title %}Order List{% endblock %}
+
+{% block content %}
+<div class="bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">Order List</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse bg-white shadow-md rounded-lg">
+            <thead class="bg-blue-600 text-white">
+                <tr>
+                    <th class="px-6 py-3 text-left">Order #</th>
+                    <th class="px-6 py-3 text-left">Customer</th>
+                    <th class="px-6 py-3 text-left">Total Amount</th>
+                    <th class="px-6 py-3 text-left">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr class="hover:bg-gray-100 transition-all {% cycle 'bg-gray-50' '' %}">
+                    <td class="px-6 py-4 border-b">#{{ order.id }}</td>
+                    <td class="px-6 py-4 border-b">{{ order.customer.name }}</td>
+                    <td class="px-6 py-4 border-b text-green-600 font-semibold">${{ order.total_amount }}</td>
+                    <td class="px-6 py-4 border-b">
+                        <span class="px-3 py-1 rounded-lg 
+                            {% if order.status == 'Pending' %}bg-yellow-200 text-yellow-700{% endif %}
+                            {% if order.status == 'Completed' %}bg-green-200 text-green-700{% endif %}
+                            {% if order.status == 'Cancelled' %}bg-red-200 text-red-700{% endif %}
+                        ">
+                            {{ order.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="px-6 py-4 text-center text-gray-500">No orders found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

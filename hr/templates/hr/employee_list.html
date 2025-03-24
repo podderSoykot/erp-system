@@ -1,0 +1,50 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %} Employee Directory {% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold text-blue-700 text-center mb-6">Employee Directory</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse bg-white shadow-md rounded-lg">
+            <thead class="bg-blue-700 text-white">
+                <tr>
+                    <th class="px-6 py-3 text-left">Photo</th>
+                    <th class="px-6 py-3 text-left">Employee Name</th>
+                    <th class="px-6 py-3 text-left">Department</th>
+                    <th class="px-6 py-3 text-left">Position</th>
+                    <th class="px-6 py-3 text-left">Date Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr class="hover:bg-gray-100 transition-all {% cycle 'bg-gray-50' '' }">
+                    <td class="px-6 py-4 border-b">
+                        {% if employee.photo %}
+                            <img src="{{ employee.photo.url }}" alt="{{ employee.name }}" class="w-12 h-12 rounded-full shadow">
+                        {% else %}
+                            <img src="{% static 'images/default_avatar.png' %}" alt="No Image" class="w-12 h-12 rounded-full shadow">
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 border-b font-semibold">{{ employee.name }}</td>
+                    <td class="px-6 py-4 border-b">
+                        <span class="px-3 py-1 text-xs font-semibold text-white rounded-full {% if employee.department == 'IT' %} bg-green-500 {% elif employee.department == 'HR' %} bg-blue-500 {% else %} bg-gray-500 {% endif %}">
+                            {{ employee.get_department_display }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 border-b text-gray-500">{{ employee.position }}</td>
+                    <td class="px-6 py-4 border-b text-gray-700">{{ employee.date_joined|date:"Y-m-d" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="px-6 py-4 text-center text-gray-500">No employees found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
